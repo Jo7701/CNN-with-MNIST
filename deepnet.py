@@ -57,22 +57,4 @@ def train(x):
 		accuracy = tf.reduce_mean(tf.cast(correct, 'float'))
 		print 'Accuracy: ', accuracy.eval({x:mnist.test.images.reshape(-1, height, width, 1), y:mnist.test.labels})
 
-		# x_test = mnist.test.images
-		# y_test = mnist.test.labels
-		# total = 0
-		# i = 0
-		# while i < len(x_test):
-		# 	start = i
-		# 	end = i + batch_size
-		# 	epoch_x = x_test[start:end].reshape((batch_size, height, width, 1))
-		# 	epoch_y = y_test[start:end]
-		# 	correct = tf.equal(tf.argmax(prediction, 1), tf.argmax(y, 1))
-		# 	accuracy = tf.reduce_mean(tf.cast(correct, 'float'))
-		# 	total += int(accuracy.eval(feed_dict={x:epoch_x, y:epoch_y}))
-		# 	print(np.asarray(prediction),'\n')
-		# 	print(epoch_y)
-
-		# 	i+=batch_size
-		# print('Accuracy: ', float(total / (mnist.test.num_examples/batch_size)))
-
 train(x)
